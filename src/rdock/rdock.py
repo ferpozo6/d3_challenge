@@ -15,6 +15,9 @@ class RDock:
 
     docked_poses = []
 
+    def __init__(self):
+        self.docked_poses = []
+
     def set_center(self, center):
         self.center = center
 
@@ -23,14 +26,14 @@ class RDock:
 
     # protein in mol2 format
     def set_protein(self, protname):
-        if protname.split()[-1] != "mol2":
+        if protname.split(".")[-1] != "mol2":
             print("Invalid protein file - must be mol2")
             
         self.protein = protname
 
     # ligand in sd format
     def set_ligand(self, ligandname):
-        if protname.split()[-1] != "sd":
+        if ligandname.split(".")[-1] != "sd":
             print("Invalid ligand file - must be sd")
 
         self.ligand = ligandname
@@ -92,27 +95,30 @@ END_SECTION""".format(self.protein, self.radius, ','.join(map(str, self.center))
             if score_regex:
                 self.docked_poses.append([pose, float(score_regex.group(1))])
 
-        self.docked_poses.sort(key=lambda x: x[1])
+        #self.docked_poses.sort(key=lambda x: x[1])
 
         #for dp in self.docked_poses:
         #    print(dp[1])
 
     def get_best_pose(self):
-        poseInfo = self.docked_poses[0]
-        tmpFname = 'tmp-{}'.format(int(round(time.time() * 1000)))
+        if len(self.docked_poses) > 0:
+            poseInfo = self.docked_poses[0]
+            tmpFname = 'tmp-{}'.format(int(round(time.time() * 1000)))
 
-        f = open(tmpFname+".sd", 'w+')
-        f.write(poseInfo[0])
-        f.close()
+            f = open(tmpFname+".sd", 'w+')
+            f.write(poseInfo[0])
+            f.close()
 
-        # convert with babel to mol2
-        subprocess.check_output(["babel -isd {}.sd -omol2 {}.mol2".format(tmpFname, tmpFname)], shell=True)
-        mol = Molecule(tmpFname+".mol2")
+            # convert with babel to mol2
+            subprocess.check_output(["babel -isd {}.sd -omol2 {}.mol2".format(tmpFname, tmpFname)], shell=True)
+            mol = Molecule(tmpFname+".mol2")
 
-        os.remove(tmpFname+".sd")
-        os.remove(tmpFname+".mol2")
+            os.remove(tmpFname+".sd")
+            os.remove(tmpFname+".mol2")
 
-        return mol, poseInfo[1]
+            return mol, poseInfo[1]
+
+        return Molecule(), float("inf")
 
 if __name__ == '__main__':
     # testing
