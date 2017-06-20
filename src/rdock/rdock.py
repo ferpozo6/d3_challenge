@@ -95,7 +95,7 @@ END_SECTION""".format(self.protein, self.radius, ','.join(map(str, self.center))
             if score_regex:
                 self.docked_poses.append([pose, float(score_regex.group(1))])
 
-        #self.docked_poses.sort(key=lambda x: x[1])
+        self.docked_poses.sort(key=lambda x: x[1])
 
         #for dp in self.docked_poses:
         #    print(dp[1])
