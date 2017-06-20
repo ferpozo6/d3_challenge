@@ -1,5 +1,5 @@
 # D3 Challenge
-Fernando Pozo, Carles Péres, Ivan de la Rubia
+Fernando Pozo, Carles Pérez, Ivan de la Rubia
 
 * `output_best_poses` contains the best poses that we got for our first 10 ligands
 * `src` folder contains helper classes (rdock, parameterize, babel)
