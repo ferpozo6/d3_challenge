@@ -242,7 +242,7 @@ psfgen) building segment WT0
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
 psfgen) reading residues from pdb file segments/segmentWT0.pdb
-psfgen) extracted 7374 residues from pdb file
+psfgen) extracted 7373 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 psfgen) Info: generating structure...segment complete.
@@ -260,7 +260,7 @@ psfgen) building segment WT2
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
 psfgen) reading residues from pdb file segments/segmentWT2.pdb
-psfgen) extracted 2533 residues from pdb file
+psfgen) extracted 2532 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 psfgen) Info: generating structure...segment complete.
@@ -278,7 +278,7 @@ psfgen) building segment WT4
 psfgen) disabling angle autogeneration
 psfgen) disabling dihedral autogeneration
 psfgen) reading residues from pdb file segments/segmentWT4.pdb
-psfgen) extracted 2510 residues from pdb file
+psfgen) extracted 2512 residues from pdb file
 psfgen) setting patch for first residue to NONE
 psfgen) setting patch for last residue to NONE
 psfgen) Info: generating structure...segment complete.
