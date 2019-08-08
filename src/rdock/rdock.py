@@ -3,7 +3,7 @@ import re
 import time
 import os
 
-from htmd import *
+from htmd.ui import *
 
 ''' Helper class to run rDock '''
 class RDock:
@@ -42,24 +42,25 @@ class RDock:
         self.nposes = nposes
 
     def generate_input_prm(self):
-        content = """RBT_PARAMETER_FILE_V1.00
-TITLE input_prm
+        content = """
+        RBT_PARAMETER_FILE_V1.00
+        TITLE input_prm
 
-RECEPTOR_FILE {}
-RECEPTOR_FLEX 3.0
+        RECEPTOR_FILE {}
+        RECEPTOR_FLEX 3.0
 
-SECTION MAPPER
-    SITE_MAPPER RbtSphereSiteMapper
-    RADIUS {}
-    SMALL_SPHERE 1.0
-    MAX_CAVITIES 1
-    CENTER ({})
-END_SECTION
+        SECTION MAPPER
+            SITE_MAPPER RbtSphereSiteMapper
+            RADIUS {}
+            SMALL_SPHERE 1.0
+            MAX_CAVITIES 1
+            CENTER ({})
+        END_SECTION
 
-SECTION CAVITY
-    SCORING_FUNCTION RbtCavityGridSF
-    WEIGHT 1.0
-END_SECTION""".format(self.protein, self.radius, ','.join(map(str, self.center)))
+        SECTION CAVITY
+            SCORING_FUNCTION RbtCavityGridSF
+            WEIGHT 1.0
+        END_SECTION""".format(self.protein, self.radius, ','.join(map(str, self.center)))
 
         f = open('rdock_input.prm', 'w+')
         f.write(content)
