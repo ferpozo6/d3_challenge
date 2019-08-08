@@ -31,7 +31,7 @@ Distributed under the GNU General Public License. See ``LICENSE`` for more infor
 
 [https://github.com/ferpozo6](https://github.com/ferpozo6)
 
-Originally it was created from a collaborative project [https://github.com/novikk/d3_challenge](https://github.com/novikk/d3_challenge) to participate in the [D3 Challenge](https://drugdesigndata.org/about/challenge-pl-2016-1)[]
+Originally it was created from a collaborative project [https://github.com/novikk/d3_challenge](https://github.com/novikk/d3_challenge) to participate in the [D3 Challenge](https://drugdesigndata.org/about/challenge-pl-2016-1)
 
 ## Contributing
 
